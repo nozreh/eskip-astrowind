@@ -1,6 +1,9 @@
 ---
+import { SITE } from '~/config.mjs';
+import { Image } from '@astrojs/image/components';
+import Logo from '~/assets/images/logo-clear.png';
 ---
 
 <span class="self-center ml-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white">
-  🚀 AstroWind</span
->
+  <Image src={Logo} alt={SITE.title} width={100}/>
+</span>

@@ -26,12 +26,12 @@ const {
   content = await Astro.slots.render('content'),
   items = [],
   image = await Astro.slots.render('image'),
-  isReversed = false,
+  isReversed = true,
   isAfterContent = false,
 } = Astro.props;
 ---
 
-<section class:list={[{ 'pt-0 md:pt-0': isAfterContent }, 'bg-blue-50 dark:bg-slate-800 py-16 md:py-20']}>
+<section class:list={[{ 'pt-0 md:pt-0': isAfterContent }, 'bg-blue-50 dark:bg-slate-800 py-16 md:py-20']} id="what-is-eskip">
   <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
     {
       (title || subtitle || highlight) && (
