@@ -1,10 +1,11 @@
 ---
 import { Icon } from 'astro-icon';
+import { Picture } from '@astrojs/image/components';
 
 interface Item {
   name: string;
   position: string;
-  image: string;
+  image: string | any ;
   mask: string;
   links: Array<Link>;
 }
@@ -63,7 +64,22 @@ const {
           <div class="mb-6 lg:mb-0">
         <div class="bg-white block rounded-lg shadow-lg">
             <div class="relative overflow-hidden bg-no-repeat bg-cover">
-              <img src={image} class="w-full rounded-t-lg" />
+              {
+                image &&
+                  (typeof image === 'string' ? (
+                  <img src={image} class="w-full rounded-t-lg" />
+                  ) : (
+                    <Picture
+                      class="w-full rounded-t-lg"
+                      widths={[432, 432]}
+                      aspectRatio="432:432"
+                      width={432}
+                      height={432}
+                      {...image}
+                    />
+                  ))
+              }
+              
               <a href="#!">
                 <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
               </a>
