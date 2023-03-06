@@ -16,8 +16,8 @@ export const headerData = {
         {
             text: 'Pages',
             links: [{
-                    text: 'Features',
-                    href: '#',
+                    text: 'Meet the Team',
+                    href: '#meet-the-team',
                 },
                 {
                     text: 'Pricing',
