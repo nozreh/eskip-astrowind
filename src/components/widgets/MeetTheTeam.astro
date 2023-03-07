@@ -31,8 +31,8 @@ const {
 ---
 
 <!-- Section: Design Block -->
-<section class="mb-32 text-gray-800 text-center" id="meet-the-team">
-  <div class="container my-24 px-6 mx-auto">
+<section class="bg-blue-50 dark:bg-slate-800'" id="meet-the-team">
+  <div class="px-4 py-16 mx-auto max-w-6xl lg:px-8 lg:py-20">
   {
     (title || subtitle || highlight) && (
       <div class="mb-10 md:mx-auto text-center md:mb-12 max-w-3xl">
@@ -64,22 +64,7 @@ const {
           <div class="mb-6 lg:mb-0">
         <div class="bg-white block rounded-lg shadow-lg">
             <div class="relative overflow-hidden bg-no-repeat bg-cover">
-              {
-                image &&
-                  (typeof image === 'string' ? (
-                  <img src={image} class="w-full rounded-t-lg" />
-                  ) : (
-                    <Picture
-                      class="w-full rounded-t-lg"
-                      widths={[432, 432]}
-                      aspectRatio="432:432"
-                      width={432}
-                      height={432}
-                      {...image}
-                    />
-                  ))
-              }
-              
+              <img src={image} class="w-full rounded-t-lg" />
               <a href="#!">
                 <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
               </a>
@@ -98,13 +83,12 @@ const {
             </ul>
             </div>
           </div>
-      </div>
-            ))}
-        
-    </Fragment>
+          </div>
+            ))}  
+        </Fragment>
       ))
     }
-    </div>
+  </div>
 
   </div>
 </section>

@@ -9,32 +9,35 @@ const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   highlight,
+  isAfterContent = false,
 } = Astro.props;
 ---
-<section class="bg-blue-50 dark:bg-slate-800 py-16 md:py-20">
-    <div class="relative max-w-7xl mx-auto px- sm:px-6 -mb-12">
-<div class="2xl:container 2xl:mx-auto md:py-12 lg:px-20 md:px-6 px-4 py-9">
+<section class:list={[{ 'pt-0 md:pt-0': isAfterContent }, '']} id="what-is-eskip">
+  <div class="px-4 py-16 mx-auto max-w-6xl lg:px-8 lg:py-20">
+
     <!--- more free and premium Tailwind CSS components at https://tailwinduikit.com/ --->
-    {
-        (title || subtitle || highlight) && (
-          <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
-            {highlight && (
-              <p class="text-base text-primary dark:text-blue-200 font-semibold tracking-wide uppercase">
-                {highlight}
-              </p>
-            )}
-            {title && (
-              <h2
-                class="max-w-lg mb-4 text-3xl font-bold leading-none tracking-tight sm:text-4xl md:mx-auto font-heading"
-                set:html={title}
-              />
-            )}
-            {subtitle && (
-              <p class="max-w-3xl mx-auto text-center text-xl text-muted dark:text-slate-400" set:html={subtitle} />
-            )}
-          </div>
-        )
-      }
+   {
+      (title || subtitle || highlight) && (
+        <div class="mb-10 md:mx-auto text-center md:mb-12 max-w-3xl">
+          {highlight && (
+            <p
+              class="text-base text-primary dark:text-blue-200 font-semibold tracking-wide uppercase"
+              set:html={highlight}
+            />
+          )}
+          {title && (
+            <h2
+              class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading"
+              set:html={title}
+            />
+          )}
+
+          {subtitle && (
+            <p class="max-w-3xl mx-auto sm:text-center text-xl text-muted dark:text-slate-400" set:html={subtitle} />
+          )}
+        </div>
+      )
+    }
     <div class="relative md:flex justify-center items-center">
       <div class="md:w-4/12 w-full">
         <div class="flex space-x-2 md:mt-0 mt-10">
@@ -284,5 +287,53 @@ const {
       </div>
     </div>
   </div>
-  </div>
   </section>
+
+  <script>
+    // Js Code for medium and large Screen
+    // more free and premium Tailwind CSS components at https://tailwinduikit.com/
+    let next = document.getElementById("next");
+    let prev = document.getElementById("prev");
+    let defaultTransform = 0;
+
+    function goNext() {
+      defaultTransform = defaultTransform - 298;
+      var slider = document.getElementById("slider");
+      if (slider && Math.abs(defaultTransform) >= slider.scrollWidth / 1.2)
+        defaultTransform = 0;
+      slider.style.transform = "translateX(" + defaultTransform + "px)";
+    }
+    function goPrev() {
+      var slider = document.getElementById("slider");
+      if (Math.abs(defaultTransform) === 0) defaultTransform = 0;
+      else defaultTransform = defaultTransform + 298;
+      slider.style.transform = "translateX(" + defaultTransform + "px)";
+    }
+    next.addEventListener("click", goNext);
+    prev.addEventListener("click", goPrev);
+
+    // Js Code for small Scroll
+    // more free and premium Tailwind CSS components at https://tailwinduikit.com/
+
+    let next2 = document.getElementById("next2");
+    let prev2 = document.getElementById("prev2");
+    let defaultTransform2 = 0;
+    function goNext2() {
+      var sizeDiv = document.getElementById("sizeDiv").offsetWidth + 5;
+      defaultTransform2 = defaultTransform2 - sizeDiv;
+      var slider = document.getElementById("slider2");
+      if (Math.abs(defaultTransform2) >= slider.scrollWidth / 1.2)
+        defaultTransform2 = 0;
+      slider.style.transform = "translateX(" + defaultTransform2 + "px)";
+    }
+    function goPrev2() {
+      var sizeDiv = document.getElementById("sizeDiv").offsetWidth + 5;
+      var slider = document.getElementById("slider2");
+      if (Math.abs(defaultTransform2) === 0) defaultTransform2 = 0;
+      else defaultTransform2 = defaultTransform2 + sizeDiv;
+      slider.style.transform = "translateX(" + defaultTransform2 + "px)";
+    }
+    next2.addEventListener("click", goNext2);
+    prev2.addEventListener("click", goPrev2);
+
+  </script>
