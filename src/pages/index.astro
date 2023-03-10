@@ -2,7 +2,7 @@
 import { SITE } from '~/config.mjs';
 import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
@@ -25,14 +25,13 @@ const meta = {
 <Layout {meta}>
   <!-- Hero Widget ******************* -->
 
-  <Hero
-    callToAction={{ text: 'Join Beta', href: meta.call2ActionLink, icon: 'tabler:hand-click' }}
-    callToAction2={{ text: 'Learn more', href: '#features' }}
-    image={{ src: import('~/assets/images/wait-in-line.png'), alt: meta.title }}
+  <Hero2
+  callToAction={{ text: 'Join Beta', href: meta.call2ActionLink, icon: 'tabler:hand-click' }}
+  callToAction2={{ text: 'Learn more', href: '#features' }}
+  image={{ src: import('~/assets/images/wait-in-line.png'), alt: meta.title }}
   >
-   <svgReference/>
     <Fragment slot="title">
-      Say goodbye to long waiting time<span class="hidden lg:inline"> and customer drop-off<br class="2xl:hidden"/> with</span>
+      Say goodbye to long waiting time<span class="hidden lg:inline"> and customer drop-off</span> with
       <span class="text-accent dark:text-white highlight"> eskip</span>
     </Fragment>
 
@@ -41,7 +40,7 @@ const meta = {
         <span class="font-semibold">eskip</span> is the First ever Philippine-made POS system, conceived, and proudly developed by Filipinos.</span
       >
     </Fragment>
-  </Hero>
+  </Hero2>
 
   <!-- Note Widget ******************* -->
 
@@ -132,34 +131,6 @@ const meta = {
 
   <!-- Content Widget **************** -->
 
-  <!--Content
-    isReversed
-    isAfterContent
-    items={[
-      {
-        title: 'Per ei quaeque sensibus',
-      },
-      {
-        title: 'Cu imperdiet posidonium sed',
-      },
-      {
-        title: 'Nulla omittam sadipscing mel ne',
-      },
-      {
-        title: 'Per ei quaeque sensibus',
-      },
-      {
-        title: 'Cu imperdiet posidonium sed',
-      },
-      {
-        title: 'Nulla omittam sadipscing mel ne',
-      },
-    ]}
-    image={{
-      src: import('~/assets/images/vintage.jpg'),
-      alt: 'Vintage Image',
-    }}
-  /-->
 
   <!-- Steps Widget ****************** -->
 
@@ -199,7 +170,7 @@ const meta = {
 
   <Features2
     title="Full features"
-    subtitle="AI-powered End-to-end service that leads to more efficient operations and reduced costs"
+    subtitle="Efficient operations and reduced costs"
     highlight="Components"
     items={[
       {
@@ -217,44 +188,44 @@ const meta = {
       {
         title: 'Staff Performance',
         description:
-          'Display your product in action and how the Features actually create a solution for your target customer.',
-        icon: 'flat-color-icons:todo-list',
+          'Track staff performance and productivity, such as order processing time or table turnover rate, leading to better performance management and training opportunities.',
+        icon: 'flat-color-icons:conference-call',
       },
       {
-        title: 'Latest Updates',
+        title: 'Analytics',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
-        icon: 'flat-color-icons:document',
+          'Provide valuable insights into customer behaviour, preferences, and trends through data analysis to improve  business decisions and strategies.',
+        icon: 'flat-color-icons:pie-chart',
       },
       {
         title: 'Marketing',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+          'Create targeted marketing campaigns and promotions based on customer data, such as contact information and order history. No more wasted marketing money.',
         icon: 'flat-color-icons:advertising',
       },
       {
         title: 'Sales',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+          'Generate sales reports that provide detailed insights into sales performance, such as revenue by product or sales by time of day.',
         icon: 'flat-color-icons:currency-exchange',
       },
       {
         title: 'Testimonial',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
+          'View realtime or after-service customer feedback to help you improve your products and services.',
         icon: 'flat-color-icons:voice-presentation',
       },
       {
-        title: 'Customer Data',
+        title: 'Secured Customer Data',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
         icon: 'flat-color-icons:business-contact',
       },
       {
-        title: 'Inventory',
+        title: 'Queueing and Reservations',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.',
-        icon: 'icon-park:page-template',
+        icon: 'flat-color-icons:serial-tasks',
       },
     ]}
   />
