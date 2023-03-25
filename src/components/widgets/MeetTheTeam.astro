@@ -1,12 +1,10 @@
 ---
 import { Icon } from 'astro-icon';
-import { Picture } from '@astrojs/image/components';
 
 interface Item {
   name: string;
   position: string;
   image: string | any ;
-  mask: string;
   links: Array<Link>;
 }
 
@@ -55,40 +53,30 @@ const {
       </div>
     )
   }
-  
-  <div class="grid md:grid-cols-3 gap-x-6 lg:gap-x-12">
+  <Fragment>
     {
       items.map((subitems) => (
-        <Fragment>      
-          {subitems.map(({ name, position, image, mask, links }) => (
-          <div class="mb-6 lg:mb-0">
-        <div class="bg-white block rounded-lg shadow-lg">
-            <div class="relative overflow-hidden bg-no-repeat bg-cover">
-              <img src={image} class="w-full rounded-t-lg" />
-              <a href="#!">
-                <div class="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
-              </a>
-              <div set:html={mask}></div>
-            </div>
-            <div class="p-6">
-              <h5 class="text-lg font-bold mb-2 text-center">{name}</h5>
-              <p class="text-gray-500 mb-6 text-center">{position}</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-x-6 lg:gap-xl-12 text-gray-800 text-center">
+          {subitems.map(({ name, position, image, links }) => (
+      <div class="mb-12 lg:mb-0">
+          <img class="rounded-lg shadow-lg mb-6 mx-auto" src={image}
+                alt={name} style="width: 150px" />
+              <h5 class="text-lg font-bold mb-2">{name}</h5>
+              <p class="mb-4">{position}</p>
               <ul class="list-inside flex mx-auto justify-center">
-              {
-                 links && links.map((link: Link) => (
-                   <a href={link.url} class="px-2">
+                {
+                  links && links.map((link: Link) => (
+                    <a href={link.url} class="px-2">
                       {link.icon && <Icon name={link.icon} class="w-4 h-4 text-blue-600" />}
                     </a> 
                 ))}
-            </ul>
+              </ul>
             </div>
-          </div>
-          </div>
             ))}  
-        </Fragment>
+        </div>
       ))
     }
-  </div>
+</Fragment>
 
   </div>
 </section>
