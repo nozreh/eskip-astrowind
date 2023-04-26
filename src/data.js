@@ -19,10 +19,10 @@ export const headerData = {
                     text: 'Meet the Team',
                     href: '#meet-the-team',
                 },
-                {
+                /*{
                     text: 'Pricing',
                     href: '#',
-                },
+                },*/
                 {
                     text: 'About us',
                     href: '#',
@@ -59,15 +59,12 @@ export const footerData = {
     links: [{
             title: 'Product',
             links: [
-                { text: 'Features', href: '#' },
-                { text: 'Security', href: '#' },
-                { text: 'Team', href: '#' },
-                { text: 'Enterprise', href: '#' },
-                { text: 'Customer stories', href: '#' },
+                { text: 'Features', href: '/#features' },
+                { text: 'Team', href: '/#meet-the-team' },
                 { text: 'Join Beta Program', href: '#' },
             ],
         },
-        {
+        /*{
             title: 'Platform',
             links: [
                 { text: 'Partners', href: '#' },
@@ -78,7 +75,7 @@ export const footerData = {
             links: [
                 { text: 'Docs', href: '#' },
             ],
-        },
+        },*/
         {
             title: 'Company',
             links: [
